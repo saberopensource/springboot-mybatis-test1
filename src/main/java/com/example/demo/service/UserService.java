@@ -1,10 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.UesrDao;
+import com.example.demo.dao.UserEntityMapper;
 import com.example.demo.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author baiyang
@@ -16,14 +15,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
     //装配自动注入
     @Autowired
-    private UesrDao uesrDao;
+    private UserEntityMapper uesrDao;
 
-    public UserEntity findService(String username){
-        return uesrDao.findUserName(username);
+    public UserEntity selectByPrimaryKey(long id){
+        return uesrDao.selectByPrimaryKey(id);
     }
 
-    public void insertService(UserEntity userEntity){
-            uesrDao.insertUser("baiyang",26,"85894584445");
+    public void insertUser(UserEntity userEntity){
+            uesrDao.insert(userEntity);
     }
 
 }

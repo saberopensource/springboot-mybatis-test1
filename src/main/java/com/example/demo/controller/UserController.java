@@ -20,16 +20,8 @@ public class UserController {
         @Autowired
         private UserService userService;
 
-        private UserEntity userEntity;
-        @RequestMapping("/query")
-        public UserEntity testQuery(){
-            return userService.findService(
-                    "baiyang");
-        }
-
         @RequestMapping("/insert")
-        public UserEntity testInsert(){
-            userService.insertService(userEntity);
-            return userService.findService("tanqiyu");
+        public void insertUser(UserEntity userEntity){
+            userService.insertUser(userEntity);
         }
 }

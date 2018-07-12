@@ -1,51 +1,43 @@
 package com.example.demo.entity;
 
-
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Column;
-
-/**
- * @author baiyang
- * @Email: 1419408386@qq.com
- * @DATE : 2018-07-09
- * @MESSAGE: 如果看不懂先debug，不知道就来问我
- */
 public class UserEntity {
-    @Getter
-    @Setter
-    protected int id;
-    @Getter
-    @Setter
-    @Column(length = 255)
+    private Long id;
+
     private String username;
-    @Getter
-    @Setter
-    @Column(length = 2)
-    private int age;
-    @Getter
-    @Setter
-    @Column(length = 11)
-    private String phoneNum;
 
-    public UserEntity() {
+    private Integer age;
+
+    private String phonenum;
+
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", age=" + age +
-                ", phoneNum=" + phoneNum +
-                '}';
-    }
-
-    public UserEntity(int id, String username, int age, String phoneNum) {
+    public void setId(Long id) {
         this.id = id;
-        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
         this.age = age;
-        this.phoneNum = phoneNum;
+    }
+
+    public String getPhonenum() {
+        return phonenum;
+    }
+
+    public void setPhonenum(String phonenum) {
+        this.phonenum = phonenum == null ? null : phonenum.trim();
     }
 }
